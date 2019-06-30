@@ -4,10 +4,11 @@ apt install
 apt -y upgrade
 apt -y install tmux
 apt -y install yum
-apt install sudo
 apt -y install jq
+apt install sudo
 apt install bc
 apt install htop
+apt install psmisc
 curl -LO https://raw.githubusercontent.com/xChickens/Harmony-FN-Scripts/master/stat.sh && chmod u+x stat.sh
 curl -LO https://raw.githubusercontent.com/xChickens/Harmony-FN-Scripts/master/rank.sh && chmod u+x rank.sh
 curl -LO https://raw.githubusercontent.com/xChickens/Harmony-FN-Scripts/master/.bash_profile
