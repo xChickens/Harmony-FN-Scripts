@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # stat.sh - Check foundational node status/statistics
 
@@ -66,6 +66,7 @@ if [ $passed -ge 86400 ] || [ $starttime -ge $prevtime ]
     echo $curbal > prevbal
     echo $curtime > prevtime
     prevtime=$curtime
+    passed=0
 fi
 
 # Calculate rewards per 24 h
@@ -82,26 +83,27 @@ fi
 echo
 echo "$balances" |grep -i "address"
 if [[ $bal0 != "  0." ]]
-  then 
+  then
     echo "$balances" |grep -i "shard 0" |cut -f 1 -d ","
 fi
 if [[ $bal1 != "  0." ]]
-  then 
+  then
     echo "$balances" |grep -i "shard 1" |cut -f 1 -d ","
 fi
 if [[ $bal2 != "  0." ]]
-  then 
+  then
     echo "$balances" |grep -i "shard 2" |cut -f 1 -d ","
 fi
 if [[ $bal3 != "  0." ]]
-  then 
+  then
     echo "$balances" |grep -i "shard 3" |cut -f 1 -d ","
 fi
-# echo -e '    Stored Bal. Diff. :  \c'
-# echo $reward
-echo -e '    Time Since Save   :  \c'
+echo -e '    Saved Bal. Diff.  :  \c'
+echo $reward
+echo -e '    Time Since Saved  :  \c'
 ((sec=passed%60, passed/=60, min=passed%60, hrs=passed/60))
 timestamp=$(printf "%02d:%02d:%02d" $hrs $min $sec)
+
 echo $timestamp
 echo -e '    Est. Rewards (24h):  \c'
 echo $daily
