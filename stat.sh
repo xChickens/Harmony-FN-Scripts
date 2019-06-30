@@ -80,7 +80,6 @@ if [[ $passed != 0 ]]
 fi
 
 # Show results
-echo
 echo "$balances" |grep -i "address"
 if [[ $bal0 != "  0." ]]
   then
@@ -98,6 +97,7 @@ if [[ $bal3 != "  0." ]]
   then
     echo "$balances" |grep -i "shard 3" |cut -f 1 -d ","
 fi
+echo
 echo -e '    Saved Bal. Diff.  :  \c'
 echo $reward
 echo -e '    Time Since Saved  :  \c'
