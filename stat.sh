@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# stat.sh - Check foundational node status/statistics
+# stat.sh - Check foundational node status/statistics (requires 'bc' installed)
 
 # Get timestamps
 lastbingo=`grep -i bingo latest/*.log |tail -n 1 |cut -f 2 -d 'r' |cut -c 16-34 | tr T \ `
