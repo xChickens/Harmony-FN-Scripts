@@ -2,7 +2,7 @@
 
 # balances.sh - Uses list of addresses in foundational.go and lists their balances
 #
-rm balances.csv
+rm -f balances.csv
 printf "Address,Shard,Balance\n" >> balances.csv
 
 for address in `cat ../internal/genesis/foundational.go | grep Address | cut -d'"' -f4`
