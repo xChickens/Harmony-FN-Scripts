@@ -18,9 +18,9 @@ echo -e '    Date and time     :  \c' && date
 # Check validation status
 if [[ $time1 -ge $time2 ]]
     then
-        echo -e '    Node status       :  Validating OK!\c'
+        echo '    Node status       :  Validating OK!'
     else
-        echo -e '    Node status       :  NOT OK, PANIC!!!\c'
+        echo '    Node status       :  NOT OK, PANIC!!!'
 fi
 
 # Fetch current and previous bingo time
@@ -43,7 +43,7 @@ if [[ "$created" != "" ]]
 fi
 
 # Check balances (wait for delay in update)
-echo
+echo "$balances" |grep -i "address"
 echo "    Loading balances... (May take up to 7 seconds)"
 timediff=$(($rawtime - $time1))
 if [[ $timediff -lt 7 ]]
@@ -78,10 +78,9 @@ if [[ $passed != 0 ]]
         daily=$(echo "scale=5; $reward * 86400 / $passed" | bc -l)
     else
         daily=0
-foundational
+fi
 
 # Show results
-echo "$balances" |grep -i "address"
 for (( b=0; i < ${#bal[@]}; b++ ))
 do
     if [[ $bal[$b] != " 0." ]]
