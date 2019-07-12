@@ -33,7 +33,7 @@ do
         printf "3," >> balances.csv
         printf "$bal3\n" >> balances.csv
     else 
-        printf "N/A," >> balances.csv
-        printf "N/A\n" >> balances.csv
+        printf "," >> balances.csv
+        printf "\n" >> balances.csv
     fi
 done 
