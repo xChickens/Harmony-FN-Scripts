@@ -43,7 +43,6 @@ if [[ "$created" != "" ]]
 fi
 
 # Check balances (wait for delay in update)
-echo "$balances" |grep -i "address"
 echo "    Loading balances... (May take up to 7 seconds)"
 timediff=$(($rawtime - $time1))
 if [[ $timediff -lt 7 ]]
@@ -81,9 +80,10 @@ if [[ $passed != 0 ]]
 fi
 
 # Show results
+echo "$balances" |grep -i "address"
 for (( b=0; i < ${#bal[@]}; b++ ))
 do
-    if [[ $bal[$b] != " 0." ]]
+    if [[ ${bal[$b]} != "  0." ]]
         then
             echo "$balances" |grep "Shard $b" |cut -f 1 -d ","
     fi
