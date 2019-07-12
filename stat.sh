@@ -3,14 +3,14 @@
 # stat.sh - Check foundational node status/statistics (requires 'bc' installed)
 
 # Get timestamps
-time1=$(date -d "$lastbingo" +%s)
-rawtime=$(date +%s)
-time2=$(($rawtime - 60))
 created=$(grep -i -m 1 allocated latest/*.log |cut -f 7-9 -d ":" |cut -f 1 -d "." |cut -c 2- | tr T \ )
 bingolist=$(grep -i bingo latest/*.log)
 lastbingo=$(echo "$bingolist" |tail -n 1 |cut -f 2 -d 'r' |cut -c 16-34 | tr T \ )
 latest=$(echo "$bingolist" |tail -n 1 |cut -f 2 -d 'T' |cut -c 1-14)
 bingos=$(echo "$bingolist" |tail -n 2 |cut -f 2 -d 'T' |cut -c 7-14)
+time1=$(date -d "$lastbingo" +%s)
+rawtime=$(date +%s)
+time2=$(($rawtime - 60))
 
 echo
 echo -e '    Date and time     :  \c' && date
