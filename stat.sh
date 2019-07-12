@@ -118,4 +118,4 @@ fi
 
 # Calculate and show the time difference
 difference=$(echo $bingo2-$bingo1 | bc -l)
-echo "    Last Bingo Intrvl :  $difference seconds\n"
+echo -e "    Last Bingo Intrvl :  $difference seconds\n"
